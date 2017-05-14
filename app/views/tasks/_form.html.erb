@@ -1,6 +1,20 @@
 <%= form_for(@task) do |f| %>
+
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% task.errors.full_tasks.each do |task| %>
+          <li><%= task %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
-  
+
+  <%= f.label :status, 'ステータス' %>
+  <%= f.select :status, ['未対応', '対応中', '対応済'] %>
+
   <%= f.submit '登録' %>
 <% end %>
