@@ -18,8 +18,10 @@
       
       <div class="form-group">
         <%= f.label :status, 'ステータス' %>
-        <% if false %><%= f.select :status, ['未対応', '対応中', '対応済'], class: 'form-control' %><% end %>
-        <%= f.text_field :status, class: 'form-control' %>
+        <%= f.select :status, ['未対応', '対応中', '対応済'], {include_blank: true} , class: 'form-control' %>
+
+        <% if false %><%= f.text_field :status, class: 'form-control' %><% end %>
+
       </div>
 
       <%= f.submit '登録' %>
