@@ -1,2 +1,12 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="text-center">
+  <h1>User Setting</h1>
+</div>
+
+<%= render 'form', user: @user %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <br>
+    <%= link_to 'ユーザ削除', @user, method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %>
+  </div>
+</div>
