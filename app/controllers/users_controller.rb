@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:edit, :update]
-  before_action :set_user, only: [:edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :destroy]
+#  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     redirect_to root_path if @user != current_user
   end
 end
